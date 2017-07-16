@@ -1,0 +1,28 @@
+//Following shows 2 examples of recursion in S-Expression
+
+
+//Factorial of x   
+def fact =
+"""
+(let ((factorial ((lambda (x) (x x))
+              (lambda (fact)
+                (lambda (n)
+                  (if (num= 0 n)
+                      1
+                      (* n ((fact fact) (- n 1)))))))))
+  (factorial x))
+"""
+
+
+//n-th Fibonacci number
+
+def fib = 
+  """
+  (let ((fibonacci ((lambda (x) (x x))
+          (lambda(fib)
+          (lambda (n)
+            (if (or (num= n 0) (num= n 1))
+                n
+                (+ ((fib fib) (- n 1)) ((fib fib) (- n 2)))))))))
+  (fibonacci x))
+  """ 
